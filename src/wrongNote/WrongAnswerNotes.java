@@ -1,4 +1,8 @@
-//package 설정
+package wrongNote;//package 설정
+
+import mainProject.Word;
+
+import java.util.Vector;
 
 /**
  * 해당 추상클래스는
@@ -7,23 +11,23 @@ public abstract class WrongAnswerNotes {
     /**
      * 오답노트 클래스에서 쓸 오답노트 필드명
      */
-    public Word[] WrongWordSet;
+    public Vector<WrongWord> wrongWordSet;
 
     /**
      * 오답노트 출력
      * WrongWordSet을 형식에 맞게 출력. toString override를 쓸지 메서드 만들지 고민하기.
      */
-    public abstract void printWrongWordSet();
+    protected abstract void printWrongWordSet();
 
     /**
-     * 오답단어 세팅하기
-     */
-    public abstract void setWrongWord();
+     * 오답단어 제거하기. 성공, 실패는 메서드 내부 처리
+     * */
+    protected abstract void removeWrongWord();
 
     /**
-     * 오답단어 제거하기
+     * 오답단어 추가하기. 오답 나온 단어에 이 메서드만 써주면 됨.
      */
-    public abstract void removeWrongWord();
+    public abstract void addWrongWord(Word word);
 
     /**
      * 오답노트 초기화.
